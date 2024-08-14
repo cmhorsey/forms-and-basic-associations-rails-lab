@@ -11,17 +11,6 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
-  # def note_contents=()
-  #   self.notes.map(&:content)
-  # end
-
-  # def note_contents=(notes)
-  #   notes.each do |content|
-  #     note = Note.find(content: content)
-  #     self.notes << note
-  #   end
-  # end
-
   def note_contents=(notes)
     notes.each do |content|
       note = Note.find_or_create_by(content: content)
